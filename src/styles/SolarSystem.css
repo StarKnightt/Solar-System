@@ -358,11 +358,15 @@
   .links {
     margin-top: 5px !important;
     font-size: 1.5em !important; /* Adjust to make icons larger */
-  }
+    display: flex; /* Ensures the links are aligned in a row */
+    gap: 20px; /* Adds space between the icons */
+}
 
-  .links a {
-    margin-right: 10px; /* Adds spacing between icons */
-  }
+.links a {
+    margin-right: 0; /* Remove the margin-right as 'gap' will handle the spacing */
+    padding: 10px; /* Adds padding around each icon for extra spacing */
+}
+
 
   .author {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
