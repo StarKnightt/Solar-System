@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/SolarSystem.css';
 import { useState, useRef,useEffect } from "react";
 const SolarSystem = () => {
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
 
     const toggleMusic = () => {
