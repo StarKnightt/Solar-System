@@ -15,9 +15,9 @@ const SolarSystem = () => {
     };
 
      // Auto-play music on component load
-     useEffect(() => {
-        audioRef.current.play();
-    }, []);
+    //  useEffect(() => {
+    //     audioRef.current.play();
+    // }, []);
 
     const stars = Array.from({ length: 100 }).map((_, i) => (
         <div
