@@ -72,7 +72,7 @@ const SolarSystem = () => {
                 </p>
                 <p className="links">
                     <a className="fa-brands fa-codepen" href="https://codepen.io/StarKnightt" target="_blank" rel="noopener noreferrer"></a>
-                    <a className="fa-brands fa-github" href="https://github.com/StarKnightt" target="_blank" rel="noopener noreferrer"></a>
+                    <a className="fa-brands fa-github" href="https://solarrsystem.vercel.app/" target="_blank" rel="noopener noreferrer"></a>
                     <a className="fa-brands fa-x-twitter" href="https://x.com/Star_Knight12" target="_blank" rel="noopener noreferrer"></a>
                 </p>
                 <button className={`music-toggle ${isPlaying ? 'playing' : ''}`} onClick={toggleMusic}>
