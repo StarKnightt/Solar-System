@@ -20,7 +20,7 @@ const SolarSystem = () => {
         </p>
         <hr />
         <p className="author">
-          Inspiration from <i className="fa fa-heart"></i> by Malik Dellidj
+          Inspiration from <i className="fa fa-heart" href ="https://codepen.io/kowlor/"></i> by Malik Dellidj on CodePen
         </p>
         <p className="links">
           <a className="fa fa-codepen icon" href="https://codepen.io/kowlor/" target="_blank" rel="noopener noreferrer"></a>

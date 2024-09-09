@@ -309,7 +309,7 @@
   }
   
   .asteroids-belt {
-    opacity: .7;
+    opacity: 1;
     border-color: transparent !important;
     height: 300px;
     width: 300px;
