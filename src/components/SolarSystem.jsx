@@ -1,35 +1,46 @@
 import React from 'react';
 import '../styles/SolarSystem.css';
-
+import { useState, useRef } from "react";
 const SolarSystem = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    const toggleMusic = () => {
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
     const stars = Array.from({ length: 100 }).map((_, i) => (
         <div
-          key={i}
-          className="fa-solid fa-star"
-          style={{
-            top: `${Math.random() * 100}vh`,
-            left: `${Math.random() * 100}vw`,
-            fontSize: `${Math.random() * 10 + 5}px`,
-            '--i': i,  // for animation delay
-          }}
+            key={i}
+            className="fa-solid fa-star"
+            style={{
+                top: `${Math.random() * 100}vh`,
+                left: `${Math.random() * 100}vw`,
+                fontSize: `${Math.random() * 10 + 5}px`,
+                '--i': i,  // for animation delay
+            }}
         ></div>
-      ));
+    ));
     return (
         <div className="solar-system-container">
-             <div className="starfield">
-        {stars}
-      </div>
-           <div className="starfield">
-        <div className="fa-solid fa-star" style={{ top: '10%', left: '20%', fontSize: '12px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '30%', left: '50%', fontSize: '8px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '50%', left: '80%', fontSize: '15px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '70%', left: '10%', fontSize: '5px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '90%', left: '40%', fontSize: '10px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '15%', left: '75%', fontSize: '20px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '5%', left: '30%', fontSize: '7px' }}></div>
-        <div className="fa-solid fa-star" style={{ top: '5%', left: '30%', fontSize: '7px' }}></div>
-        {/* Add more stars as needed */}
-      </div>
+            <div className="starfield">
+                {stars}
+            </div>
+            <div className="starfield">
+                <div className="fa-solid fa-star" style={{ top: '10%', left: '20%', fontSize: '12px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '30%', left: '50%', fontSize: '8px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '50%', left: '80%', fontSize: '15px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '70%', left: '10%', fontSize: '5px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '90%', left: '40%', fontSize: '10px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '15%', left: '75%', fontSize: '20px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '5%', left: '30%', fontSize: '7px' }}></div>
+                <div className="fa-solid fa-star" style={{ top: '5%', left: '30%', fontSize: '7px' }}></div>
+                {/* Add more stars as needed */}
+            </div>
             <div className="description">
                 <h1>Solar System</h1>
                 <hr />
@@ -58,6 +69,9 @@ const SolarSystem = () => {
                     <a className="fa-brands fa-github" href="https://github.com/StarKnightt" target="_blank" rel="noopener noreferrer"></a>
                     <a className="fa-brands fa-x-twitter" href="https://x.com/Star_Knight12" target="_blank" rel="noopener noreferrer"></a>
                 </p>
+                <button className={`music-toggle ${isPlaying ? 'playing' : ''}`} onClick={toggleMusic}>
+                    <i className={`fas ${isPlaying ? 'fa-volume-up' : 'fa-volume-mute'}`}></i>
+                </button>
             </div>
             <div className="solar-syst">
                 <div className="sun"></div>
@@ -72,6 +86,11 @@ const SolarSystem = () => {
                 <div className="pluto"></div>
                 <div className="asteroids-belt"></div>
             </div>
+            <audio ref={audioRef} loop>
+                <source src="/space-music.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+
         </div>
     );
 };
