@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/SolarSystem.css';
-import { useState, useRef } from "react";
+import { useState, useRef,useEffect } from "react";
 const SolarSystem = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const audioRef = useRef(null);
 
     const toggleMusic = () => {
@@ -13,6 +13,12 @@ const SolarSystem = () => {
         }
         setIsPlaying(!isPlaying);
     };
+
+     // Auto-play music on component load
+     useEffect(() => {
+        audioRef.current.play();
+    }, []);
+
     const stars = Array.from({ length: 100 }).map((_, i) => (
         <div
             key={i}
