@@ -1,6 +1,18 @@
 /* Solar System Styles */
-*, *:before, *:after {
+
+:root {
+    --year-in-second: 30s; /* 1 Earth year = 30 sec */
+  }
+  
+  *, *:before, *:after {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    width: 100%;
   }
   
   body {
@@ -11,7 +23,7 @@
     margin: 0;
     overflow: hidden;
   }
-  
+
   .solar-system-container {
     width: 100%;
     height: 100vh;
@@ -19,56 +31,75 @@
     overflow: hidden;
   }
   
-  .description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-    max-width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-  }
-  
   h1 {
     font-weight: 300;
-    font-size: 2em;
-    margin-bottom: 0.5em;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-family: Lato, sans-serif;
+    line-height: 1.6em;
+    letter-spacing: .1em;
   }
   
-  p {
-    font-size: 0.9em;
-    line-height: 1.5;
-  }
-  
-  .author {
-    font-size: 0.8em;
-    margin-top: 1em;
-  }
-  
-  .links {
-    margin-top: 1em;
-  }
-  
-  .links a {
-    color: white;
+  a, a:visited {
     text-decoration: none;
-    margin-right: 10px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+    color: white;
+    opacity: .7;
   }
   
-  .links a:hover {
+  a:hover {
     opacity: 1;
   }
   
-  .solar-syst {
+  a.icon {
+    margin-right: 2px;
+    padding: 3px;
+  }
+  
+  .description {
+    padding: 30px;
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    z-index: 999;
+  }
+  
+  .description p {
+    font-size: .9em;
+  }
+  
+  .description p + p {
+    margin-top: 20px;
+  }
+  
+  .description p.author {
+    font-size: .7em;
+  }
+  
+  .description p.author .fa-heart {
+    color: #860014;
+  }
+  
+  hr {
+    margin: 26px 0;
+    border: 0;
+    border-top: 1px solid white;
+    background: transparent;
+    width: 25%;
+    opacity: .1;
+  }
+  
+  code {
+    color: #ae94c0;
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-size: .9em;
+  }
+  
+  .solar-syst {
+    margin: 0 auto;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    position: relative;
   }
   
   .solar-syst:after {
@@ -76,8 +107,7 @@
     position: absolute;
     height: 2px;
     width: 2px;
-    top: 50%;
-    left: 50%;
+    top: -2px;
     background: white;
     box-shadow: stars(500, 1800);
     border-radius: 100px;
@@ -102,6 +132,10 @@
     position: absolute;
   }
   
+  .solar-syst div:not(.sun):not(.asteroids-belt):before {
+    box-shadow: inset 0 6px 0 -2px rgba(0, 0, 0, 0.25);
+  }
+  
   .sun {
     background: radial-gradient(ellipse at center, #ffd000 1%,#f9b700 39%,#f9b700 39%,#e06317 100%);
     height: 40px;
@@ -120,7 +154,7 @@
     width: 70px;
     margin-top: -35px;
     margin-left: -35px;
-    animation: orb 7.1867343561s linear infinite;
+    animation: orb calc(var(--year-in-second) * 0.2395) linear infinite;
   }
   
   .mercury:before {
@@ -136,7 +170,7 @@
     width: 100px;
     margin-top: -50px;
     margin-left: -50px;
-    animation: orb 18.45746706s linear infinite;
+    animation: orb calc(var(--year-in-second) * 0.6152) linear infinite;
   }
   
   .venus:before {
@@ -152,7 +186,7 @@
     width: 145px;
     margin-top: -72.5px;
     margin-left: -72.5px;
-    animation: orb 30s linear infinite;
+    animation: orb var(--year-in-second) linear infinite;
   }
   
   .earth:before {
@@ -174,7 +208,7 @@
     margin-top: -9px;
     border-radius: 100px;
     box-shadow: 0 -10px 0 -8px grey;
-    animation: orb 2.2440352s linear infinite;
+    animation: orb calc(var(--year-in-second) * 0.0748) linear infinite;
   }
   
   .mars {
@@ -182,7 +216,7 @@
     width: 190px;
     margin-top: -95px;
     margin-left: -95px;
-    animation: orb 56.4261314s linear infinite;
+    animation: orb calc(var(--year-in-second) * 1.8808) linear infinite;
   }
   
   .mars:before {
@@ -198,7 +232,7 @@
     width: 340px;
     margin-top: -170px;
     margin-left: -170px;
-    animation: orb 355.72489s linear infinite;
+    animation: orb calc(var(--year-in-second) * 11.8618) linear infinite;
   }
   
   .jupiter:before {
@@ -214,7 +248,7 @@
     width: 440px;
     margin-top: -220px;
     margin-left: -220px;
-    animation: orb 882.69098s linear infinite;
+    animation: orb calc(var(--year-in-second) * 29.4285) linear infinite;
   }
   
   .saturn:before {
@@ -225,12 +259,29 @@
     margin-left: -6px;
   }
   
+  .saturn:after {
+    position: absolute;
+    content: "";
+    height: 2.34%; 
+    width: 4.676%;
+    left: 50%;
+    top: 0px;
+    transform: rotateZ(-52deg);
+    margin-left: -2.3%;
+    margin-top: -1.2%;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow: 0 1px 0 1px #987641, 3px 1px 0 #987641, -3px 1px 0 #987641;
+    animation: orb calc(var(--year-in-second) * 29.4285) linear infinite;
+    animation-direction: reverse;
+    transform-origin: 52% 60%;
+  }
+  
   .uranus {
     height: 520px;
     width: 520px;
     margin-top: -260px;
     margin-left: -260px;
-    animation: orb 2512.4001s linear infinite;
+    animation: orb calc(var(--year-in-second) * 84.0205) linear infinite;
   }
   
   .uranus:before {
@@ -246,7 +297,7 @@
     width: 630px;
     margin-top: -315px;
     margin-left: -315px;
-    animation: orb 4911.7816s linear infinite;
+    animation: orb calc(var(--year-in-second) * 164.7901) linear infinite;
   }
   
   .neptune:before {
@@ -260,20 +311,33 @@
   .asteroids-belt {
     opacity: .7;
     border-color: transparent !important;
-    height: 330px;
-    width: 330px;
-    margin-top: -165px;
-    margin-left: -165px;
-    animation: orb 179.9558s linear infinite;
+    height: 300px;
+    width: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+    animation: orb calc(var(--year-in-second) * 6) linear infinite;
     overflow: hidden;
   }
   
-  .pluto {
+  .asteroids-belt:before {
+    top: 50%;
+    height: 210px;
+    width: 210px;
+    margin-left: -105px;
+    margin-top: -105px;
+    background: transparent;
+    border-radius: 140px !important;
+    box-shadow: stars(390, 290, -145px, -104px);
+  }
+  
+/* You can add pluto if you want */
+
+  /* .pluto {
     height: 780px;
     width: 780px;
-    margin-top: -390px;
-    margin-left: -390px;
-    animation: orb 7439.7074s linear infinite;
+    margin-top: -450px;
+    margin-left: -320px;
+    animation: orb calc(var(--year-in-second) * 248.09) linear infinite;
   }
   
   .pluto:before {
@@ -282,35 +346,30 @@
     background: #fff;
     margin-top: -1.5px;
     margin-left: -1.5px;
+  } */
+  
+  .hide {
+    display: none;
+  }
+  
+  .links {
+    margin-top: 5px !important;
+    font-size: 1em !important;
   }
   
   @keyframes orb {
     from {
-      transform: rotate(0deg);
+      transform: rotate(0deg)
     }
     to {
-      transform: rotate(360deg);
+      transform: rotate(-360deg)
     }
   }
   
-  /* Helper function for multiple box-shadows */
-  @function stars($n, $max-area) {
-    $stars: (random($max-area) + px) (random($max-area) + px) #fff;
+  @function stars($n, $max-area, $min-area: 0, $star-size: 0) {
+    $stars: #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, #{random(1000) * 0.001});
     @for $i from 2 through $n {
-      $stars: $stars, (random($max-area) + px) (random($max-area) + px) #fff;
+      $stars: '#{$stars}, #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, #{random(1000) * 0.001})';
     }
     @return unquote($stars);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .description {
-      width: 100%;
-      max-width: none;
-      background: rgba(0, 0, 0, 0.8);
-    }
-  
-    .solar-syst {
-      transform: scale(0.5) translate(-100%, -100%);
-    }
   }
