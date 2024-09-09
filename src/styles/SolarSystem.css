@@ -17,7 +17,7 @@
   
   body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
+    background: radial-gradient(ellipse at bottom, #050a10 0%, #000000 100%);
     color: #fff;
     height: 100vh;
     margin: 0;
@@ -354,7 +354,17 @@
   
   .links {
     margin-top: 5px !important;
-    font-size: 1em !important;
+    font-size: 1.5em !important; /* Adjust to make icons larger */
+  }
+
+  .links a {
+    margin-right: 10px; /* Adds spacing between icons */
+  }
+
+  .author {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 10px;
   }
   
   @keyframes orb {
