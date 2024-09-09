@@ -34,7 +34,7 @@ const SolarSystem = () => {
                 <h1>Solar System</h1>
                 <hr />
                 <p>
-                    Hey I'm Prasenjit, I'm a space lover, and I wanted to create a solar system using React.js :)
+                    Hey I'm Prasenjit, I'm a space lover, and I wanted to create a solar system using React.js, I know I'm not the first who is building it
                 </p>
                 <p>
                     Here is a true time scaled solar-system, which means that every object has a time relative to an Earth year. You can change the number in seconds of the
