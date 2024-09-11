@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/SolarSystem.css';
-import { useState, useRef,useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 const SolarSystem = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
@@ -14,7 +14,7 @@ const SolarSystem = () => {
         setIsPlaying(!isPlaying);
     };
 
-     // Auto-play music on component load
+    // Auto-play music on component load
     //  useEffect(() => {
     //     audioRef.current.play();
     // }, []);
@@ -70,7 +70,7 @@ const SolarSystem = () => {
                 <p className="star">
                     Give it a star ⭐ on GitHub, if you liked it.
                 </p>
-                
+
                 <p className="links">
                     <a className="fa-brands fa-x-twitter" href="https://x.com/Star_Knight12" target="_blank" rel="noopener noreferrer"></a>
                     <a className="fa-brands fa-codepen" href="https://codepen.io/StarKnightt" target="_blank" rel="noopener noreferrer"></a>
