@@ -94,7 +94,7 @@ const SolarSystem = () => {
                 <div className="asteroids-belt"></div>
             </div>
             <audio ref={audioRef} loop>
-                <source src="/space-music.mp3" type="audio/mpeg" />
+                <source src="space-music.mp3" type="audio/mpeg" />
                 Your browser does not support the audio element.
             </audio>
 
